@@ -1,0 +1,7 @@
+
+0
+java:S1220""Move this file to a named package.
+Z	java:S106 "9Replace this use of System.out or System.err by a logger.(´™Õÿÿÿÿÿ8’¹üÓæ.
+Z
+java:S1854$"8Remove this useless assignment to local variable "prev".(ˆĞÉ÷ÿÿÿÿÿ8‰¶Ôæ.
+T	java:S106"9Replace this use of System.out or System.err by a logger.(¸§Äe8ëùÓæ.
