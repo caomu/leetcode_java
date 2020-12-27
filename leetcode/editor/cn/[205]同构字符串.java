@@ -28,22 +28,35 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
-    public boolean isIsomorphic(String s, String t) {
-        public boolean isIsomorphic(String s, String t) {
-            Map<char,char> relationship = new HashMap<, >();
-            for (int i = 0; i < s.length(); i++) {
-                char si = s.charAt(i);
-                char ti = t.charAt(i);
-                if (relationship.containsKey(si)) {
-                    if (ti != relationship.get(si)) {
-                        return false;
-                    }
-                } else {
-                    relationship.add(si,ti)
-                }
-            }
-            return true;
-    }
+	public boolean isIsomorphic(String s, String t) {
+		Map<Character, Character> relationshipst = new HashMap<>();
+		Map<Character, Character> relationshipts = new HashMap<>();
+
+		for (int i = 0; i < s.length(); i++) {
+			char si = s.charAt(i);
+			char ti = t.charAt(i);
+			if (relationshipst.containsKey(si)) {
+				if (ti != relationshipst.get(si)) {
+//					System.out.println("st\ti:" + i + "\ts:" + si + "\tt:" + ti);
+					return false;
+				}
+			} else {
+				relationshipst.put(si, ti);
+			}
+			if (relationshipts.containsKey(ti)) {
+				if (si != relationshipts.get(ti)) {
+//					System.out.println("ts\ti:" + i + "\ts:" + si + "\tt:" + ti);
+					return false;
+				}
+			} else {
+				relationshipts.put(ti, si);
+			}
+		}
+		return true;
+	}
 }
 //leetcode submit region end(Prohibit modification and deletion)
