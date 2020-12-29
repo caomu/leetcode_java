@@ -21,30 +21,38 @@
  * ListNode(int x) { val = x; }
  * }
  */
-class ListNode {
-	int val;
-	ListNode next;
+//class ListNode {
+//	int val;
+//	ListNode next;
+//
+//	ListNode(int x) {
+//		val = x;
+//	}
+//}
 
-	ListNode(int x) {
-		val = x;
-	}
-}
-
-public class Solution {
+class Solution {
 
 	public ListNode reverseList(ListNode head) {
+		if (null == head) {
+			return null;
+		}
 		ListNode prev = null;
 		ListNode curr = head;
-		while (curr.next != null) {
-			System.out.println(curr.val);
-			prev = curr;
-			curr = curr.next;
-			System.out.println(head.next.val);
+		ListNode next = head.next;
 
-			head = head.next;
-			head.next = prev;
-			prev = head;
+		while (next != null) {
+//			System.out.println("begin\tprev:" + (null == prev ? null : prev.val + "->" + (null == prev.next ? null : prev.next.val))
+//					+ "\tcurr:" + (null == curr ? null : curr.val + "->" + (null == curr.next ? null : curr.next.val))
+//					+ "\tnext:" + (null == next ? null : next.val + "->" + (null == next.next ? null : next.next.val)));
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+			next = curr.next;
+//			System.out.println("end\t\tprev:" + (null == prev ? null : prev.val + "->" + (null == prev.next ? null : prev.next.val))
+//					+ "\tcurr:" + (null == curr ? null : curr.val + "->" + (null == curr.next ? null : curr.next.val))
+//					+ "\tnext:" + (null == next ? null : next.val + "->" + (null == next.next ? null : next.next.val)));
 		}
+		curr.next = prev;
 		return curr;
 	}
 }

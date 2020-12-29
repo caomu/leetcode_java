@@ -63,33 +63,58 @@
 // 👍 260 👎 0
 
 
+import java.util.Stack;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class MyQueue {
+	private Stack<Integer> s1, s2;
 
-    /** Initialize your data structure here. */
-    public MyQueue() {
+	/**
+	 * Initialize your data structure here.
+	 */
+	public MyQueue() {
+		this.s1 = new Stack<>();
+		this.s2 = new Stack<>();
+	}
 
-    }
-    
-    /** Push element x to the back of queue. */
-    public void push(int x) {
+	/**
+	 * Push element x to the back of queue.
+	 */
+	public void push(int x) {
+		s1.push(x);
+	}
 
-    }
-    
-    /** Removes the element from in front of queue and returns that element. */
-    public int pop() {
+	/**
+	 * Removes the element from in front of queue and returns that element.
+	 */
+	public int pop() {
+//move to another stack and pop
+		this.move();
+		return s2.pop();
+	}
 
-    }
-    
-    /** Get the front element. */
-    public int peek() {
+	private void move() {
+		if (s2.empty()) {
+            while (!s1.empty()) {
+                s2.push(s1.pop());
+            }
+        }
+	}
 
-    }
-    
-    /** Returns whether the queue is empty. */
-    public boolean empty() {
+	/**
+	 * Get the front element.
+	 */
+	public int peek() {
+		this.move();
+		return s2.peek();
+	}
 
-    }
+	/**
+	 * Returns whether the queue is empty.
+	 */
+	public boolean empty() {
+		return s1.empty() && s2.empty();
+	}
 }
 
 /**
