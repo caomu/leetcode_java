@@ -15,10 +15,33 @@
 // 👍 9913 👎 0
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-
-    }
+	public int[] twoSum(int[] nums, int target) {
+		Map<Integer, List<Integer>> numsMap = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			List<Integer> bList = numsMap.getOrDefault(nums[i], new ArrayList<Integer>());
+			bList.add(i);
+			numsMap.put(nums[i], bList);
+		}
+//		System.out.println(numsMap);
+		for (int i = 0; i < nums.length; i++) {
+			int a = nums[i];
+			int b = target - a;
+			if (numsMap.containsKey(b)) {
+				for (int j : numsMap.get(b)) {
+					if (j != i) {
+						return new int[]{i, j};
+					}
+				}
+			}
+		}
+		return null;
+	}
 }
 //leetcode submit region end(Prohibit modification and deletion)
