@@ -13,7 +13,6 @@
         <option value="executeAction" />
         <option value="missingOverrideAnnotation" />
         <option value="useBlocks" />
-        <option value="generateSerialVersionUID" />
       </set>
     </option>
     <option name="configurationPath" value="" />

@@ -40,29 +40,53 @@
 // 👍 757 👎 0
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class MinStack {
+	int min = Integer.MAX_VALUE;
+	int size = 0;
+	List<Integer> data = new ArrayList<>();
 
-    /** initialize your data structure here. */
-    public MinStack() {
+	/**
+	 * initialize your data structure here.
+	 */
+	public MinStack() {
 
-    }
-    
-    public void push(int x) {
+	}
 
-    }
-    
-    public void pop() {
+	public void push(int x) {
+		if (size < data.size()) {
+			data.set(size, x);
+		} else {
+			data.add(x);
+		}
+		size++;
+		if (x < min) {
+			min = x;
+		}
+	}
 
-    }
-    
-    public int top() {
+	public void pop() {
+		if (min == this.top()) {
+			min = Integer.MAX_VALUE;
+			for (int i = 0; i < size - 1; i++) {
+				if (data.get(i) < min) {
+                    min = data.get(i);
+                }
+			}
+		}
+		size--;
+	}
 
-    }
-    
-    public int getMin() {
+	public int top() {
+		return data.get(size - 1);
+	}
 
-    }
+	public int getMin() {
+		return this.min;
+	}
 }
 
 /**
