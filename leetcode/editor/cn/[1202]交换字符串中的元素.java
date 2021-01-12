@@ -46,82 +46,13 @@
 // s 中只含有小写英文字母 
 // 
 // Related Topics 并查集 数组 
-// 👍 135 👎 0
+// 👍 150 👎 0
 
-
-import java.util.*;
-import java.util.stream.IntStream;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
-        UnionFind uf = new UnionFind(s.length());
-        int[] roots = uf.getRoots();
-        pairs.forEach(pair -> uf.union(pair.get(0), pair.get(1)));
 
-        Map<Integer, List<Integer>> key = new HashMap<>();
-
-//        System.out.println(Arrays.toString(roots));
-        for (int i = 0; i < roots.length; i++) {
-            int root = uf.findRoot(i);
-            List<Integer> list = key.getOrDefault(root, new ArrayList<>());
-            list.add(i);
-            key.put(root, list);
-        }
-        char[] res = new char[s.length()];
-
-//        System.out.println(key.values());
-        for (List<Integer> indexs : key.values()) {
-            List<Character> list = new ArrayList<>();
-            indexs.forEach(i -> list.add(s.charAt(i)));
-//            System.out.println(list);
-            Collections.sort(list);
-            Collections.sort(indexs);
-//            System.out.println(list);
-            Iterator<Integer> it = indexs.iterator();
-            Iterator<Character> itSet = list.iterator();
-            while (it.hasNext()) {
-                int i = it.next();
-                char c = itSet.next();
-                res[i] = c;
-            }
-        }
-
-        return new String(res);
-    }
-
-    private class UnionFind {
-        private int[] roots;
-
-        protected UnionFind(int N) {
-            this.roots = IntStream.range(0, N).toArray();
-        }
-
-        protected int[] getRoots() {
-            return this.roots;
-        }
-
-        protected void union(int p, int q) {
-            roots[this.findRoot(p)] = this.findRoot(q);
-        }
-
-        protected int findRoot(int i) {
-            int root = i;
-            while (root != roots[root]) {
-                root = roots[root];
-            }
-            int t;
-            while (i != roots[root]) {
-                t = roots[i];
-                roots[i] = root;
-                i = t;
-            }
-            return root;
-        }
-
-        protected boolean connected(int p, int q) {
-            return this.findRoot(p) == this.findRoot(q);
-        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
