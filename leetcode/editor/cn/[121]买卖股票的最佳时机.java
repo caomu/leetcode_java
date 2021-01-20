@@ -27,7 +27,17 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxProfit(int[] prices) {
-
+        int lowest = Integer.MAX_VALUE, maxProfit = 0;
+        for (int p : prices) {
+            if (p < lowest) {
+                lowest = p;
+            }
+            int profit = p - lowest;
+            if (p - lowest > maxProfit) {
+                maxProfit = profit;
+            }
+        }
+        return maxProfit;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

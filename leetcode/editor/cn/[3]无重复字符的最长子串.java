@@ -46,10 +46,30 @@
 // 👍 4800 👎 0
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-
+        if (s.length() == 0) {
+            return 0;
+        }
+        // p: start point; q: end point; maxL: substring length
+        int p = 0, q = 0, maxL = 0;
+        Map<Character, Integer> hashTable = new HashMap<>();
+        for (q = 0; q < s.length(); q++) {
+//            System.out.println("p:" + p + "," + s.charAt(p) + "\tq:" + q + "," + s.charAt(q));
+            int l = q - p;
+            Character sQ = s.charAt(q);
+            if (hashTable.containsKey(sQ) && hashTable.get(sQ) >= p) {
+                p = hashTable.get(sQ) + 1;
+            } else if (l > maxL) {
+                maxL = l;
+            }
+            hashTable.put(sQ, q);
+        }
+        return maxL + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

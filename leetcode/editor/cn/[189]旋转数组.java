@@ -28,20 +28,29 @@
 // 👍 759 👎 0
 
 
+import java.util.Arrays;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-	public void rotate(int[] nums, int k) {
-		int l = nums.length;
-		for (int i = 0; i < k; i++) {
-			int p = nums[i];
-			for (int j = 1; j <= (Math.ceil(((double) (l - i)) / (double) k)); j++) {
-				int n = (i + j * k) % l;
-				System.out.println("i:" + i + "\tj:" + j + "\tn+1:" + (n + 1) + "\tp:" + p);
-				int t = nums[n];
-				nums[n] = p;
-				p = t;
-			}
-		}
-	}
+    public void rotate(int[] nums, int k) {
+        if (nums.length < 2 || k % nums.length == 0) {
+            return;
+        }
+        int endIndex = nums.length - 1;
+        reverse(nums, 0, endIndex);
+//        System.out.println(Arrays.toString(nums));
+        reverse(nums, 0, (k - 1) % nums.length);
+//        System.out.println(Arrays.toString(nums));
+        reverse(nums, k % nums.length, endIndex);
+//        System.out.println(Arrays.toString(nums));
+    }
+
+    private void reverse(int[] nums, int s, int e) {
+        for (int i = 0; i < (e - s + 1) / 2; i++) {
+            int t = nums[s + i];
+            nums[s + i] = nums[e - i];
+            nums[e - i] = t;
+        }
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
