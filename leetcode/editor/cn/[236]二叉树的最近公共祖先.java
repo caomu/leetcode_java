@@ -52,13 +52,18 @@ class TreeNode {
     TreeNode right;
 
     TreeNode(int x) {
-        val = x;
+        this.val = x;
     }
 }
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = this.lowestCommonAncestor(root.left, p, q);
+        TreeNode right = this.lowestCommonAncestor(root.right, p, q);
+        return left != null ? (right != null ? root : left) : right;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

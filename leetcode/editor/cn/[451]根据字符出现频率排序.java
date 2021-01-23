@@ -47,24 +47,22 @@
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String frequencySort(String s) {
         Map<Character, Integer> charMap = new HashMap<>();
-        for (char c : s.toCharArray()) {
-            charMap.put(c, charMap.getOrDefault(c, 0) + 1);
-        }
-        System.out.println(charMap);
-        Map<Integer, Character> frequencyMap = new TreeMap<>();
-        for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
-            frequencyMap.put(entry.getValue(), entry.getKey());
-        }
-        System.out.println(frequencyMap);
-        StringBuilder sb = new StringBuilder(s.length());
-        for (Map.Entry<Integer, Character> entry : frequencyMap.entrySet()) {
-            sb.append(String.valueOf(entry.getValue()).repeat(entry.getKey()));
+        s.chars().forEach(c -> charMap.put((char) c, charMap.getOrDefault((char) c, 0) + 1));
+//        System.out.println(charMap);
+        Queue<Character> queue = new PriorityQueue<>((c1, c2) -> charMap.get(c2).equals(charMap.get(c1)) ?
+                c1.compareTo(c2) : charMap.get(c2).compareTo(charMap.get(c1)));
+        s.chars().forEach(c -> queue.offer((char) c));
+//        System.out.println(queue);
+        StringBuilder sb = new StringBuilder();
+        while (!queue.isEmpty()) {
+            sb.append(queue.poll());
         }
         return sb.toString();
     }

@@ -18,31 +18,21 @@
 // 👍 851 👎 0
 
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        Deque<Integer> s = new ArrayDeque<>();
-        for (int n : nums) {
-            if (s.size() < k) {
-                if (s.peek() < n) {
-                    s.add(n);
-                } else {
-                    s.push(n);
-                }
-            } else {
-                if (s.peek() < n) {
-                    s.pop();
-                    s.add(n);
-                    Deque<Integer> d = new ArrayDeque<>();
-
-                    s = d;
-                }
+        Queue<Integer> q = new PriorityQueue<>();
+        Arrays.stream(nums).forEach(n -> {
+            q.offer(n);
+            if (q.size() > k) {
+                q.poll();
             }
-        }
-        return s.peek();
+        });
+        return q.peek();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -18,8 +18,8 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Definition for a binary tree node.
@@ -57,23 +57,24 @@ class TreeNode {
 
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-
+        List<Integer> res = new ArrayList<>();
+        this.dfs(root, 0, res);
+        return res;
     }
 
     /*
      * Return true if there is a path from cur to target.
      */
-    boolean DFS(TreeNode cur, TreeNode target, Set<TreeNode> visited) {
-        return true if cur is target;
-        for (next:
-             each neighbor of cur){
-            if (next is not in visited){
-                add next to visted;
-                return true if DFS(next, target, visited) == true;
-            }
+    private void dfs(TreeNode node, int level, List<Integer> res) {
+        if (node == null) {
+            return;
         }
-        return false;
+        if (res.size() == level) {
+            res.add(node.val);
+        }
+        level++;
+        this.dfs(node.right, level, res);
+        this.dfs(node.left, level, res);
     }
-}
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -41,9 +41,27 @@ import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public List<Integer> grayCode(int n) {
-        List<Integer> res = new ArrayList<>((int) Math.pow(2d, n));
 
+    public List<Integer> grayCode(int n) {
+        // recursion terminator
+        List<Integer> res;
+        if (n == 1) {
+            res = new ArrayList<>(2);
+            res.add(0);
+            res.add(1);
+            return res;
+        }
+
+        // process current layer
+        // dig into lower layer
+        List<Integer> recursion = grayCode(n - 1);
+        res = new ArrayList<>(recursion.size() * 2);
+        recursion.forEach(i -> res.add(i << 1));
+        for (int i = recursion.size() - 1; i >= 0; i--) {
+            res.add((recursion.get(i) << 1) + 1);
+        }
+
+        // clean current layer
         return res;
     }
 }
