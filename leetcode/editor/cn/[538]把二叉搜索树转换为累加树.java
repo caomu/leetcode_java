@@ -56,6 +56,9 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -88,28 +91,35 @@ class TreeNode {
         this.left = left;
         this.right = right;
     }
+//
+//    @Override
+//    public String toString() {
+//        return "TreeNode{val=" + this.val + '}';
+//    }
 }
 
 class Solution {
     public TreeNode convertBST(TreeNode root) {
-        TreeNode node = new TreeNode(root.val, root.left, root.right);
-    }
-
-    private void recursion(int level, int param) {
-        // recursion terminator
-        if (level > MAX_LEVEL) {
-
-            return;
+        List<TreeNode> traversal = this.traversal(root);
+//        System.out.println(traversal);
+        for (int i = 1; i < traversal.size(); i++) {
+            traversal.get(i).val += traversal.get(i - 1).val;
         }
-
-        // process current layer
-        process(level, param);
-
-        // dig into lower layer
-        this.recursion(level:level + 1, newParam);
-
-        // clean current layer
-
+        return root;
     }
+
+    /**
+     * 递归遍历
+     */
+    private List<TreeNode> traversal(TreeNode node) {
+        if (node == null) { //如果结点为空则返回
+            return new ArrayList<>();
+        }
+        List<TreeNode> traversal = new ArrayList<>(this.traversal(node.right));//访问右孩子
+        traversal.add(node);//访问根节点
+        traversal.addAll(this.traversal(node.left));//访问左孩子
+        return traversal;
+    }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)

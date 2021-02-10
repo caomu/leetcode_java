@@ -57,7 +57,48 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean lemonadeChange(int[] bills) {
-
+        /**
+         * 0:5
+         * 1:10
+         * 2:20
+         */
+        int[] wallet = new int[3];
+        for (int i = 0; i < bills.length; i++) {
+            switch (bills[i]) {
+                case 5:
+                    wallet[0]++;
+                    break;
+                case 10:
+                    wallet[1]++;
+                    break;
+                case 20:
+                    wallet[2]++;
+                    break;
+            }
+            if (bills[i] == 10) {
+                if (wallet[0] > 0) {
+                    wallet[0]--;
+                } else {
+                    return false;
+                }
+            } else if (bills[i] == 20) {
+                if (wallet[1] > 0) {
+                    wallet[1]--;
+                    if (wallet[0] > 0) {
+                        wallet[0]--;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    if (wallet[0] > 2) {
+                        wallet[0] = wallet[0] - 3;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

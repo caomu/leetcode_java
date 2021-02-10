@@ -57,7 +57,6 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /*
-// Definition for a Node.
 class Node {
     int val;
     Node next;
@@ -71,6 +70,8 @@ class Node {
 }
 */
 
+
+import java.util.HashMap;
 import java.util.Map;
 
 class Node {
@@ -87,11 +88,26 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
-        Map<Node,>
+        Map<Node, Node> randomMap = new HashMap<>();
         Node nHead = new Node(head.val);
-        nHead.next = head.next;
         nHead.random = head.random;
-
+        Node node = head;
+        while (node.next != null) {
+            randomMap.put(node, node.random);
+            node = node.next;
+        }
+        node = head.next;
+        Node prev = nHead;
+        Map<Node, Node> oldNewMap = new HashMap<>();
+        while (node.next != null) {
+            Node t = new Node(node.val);
+            prev.next = t;
+            oldNewMap.put(node, t);
+            prev = node;
+            node = node.next;
+        }
+        oldNewMap.forEach((oldNode, newNode) -> newNode.random = oldNewMap.get(randomMap.get(oldNode)));
+        return nHead;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

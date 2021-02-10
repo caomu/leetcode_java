@@ -27,7 +27,7 @@ import java.util.stream.IntStream;
 class Solution {
     public int[] countBits(int num) {
         int[] res = new int[num + 1];
-        IntStream.range(1, num + 1).forEach(i -> bit(res, i));
+        IntStream.range(1, num + 1).forEach(i -> this.bit(res, i));
         return res;
     }
 
@@ -38,7 +38,7 @@ class Solution {
      * @param n
      * @return　第n位的答案
      */
-    public int bit(int[] res, int n) {
+    private int bit(int[] res, int n) {
         // 递归的终止条件
         if (0 != res[n] || 0 == n) {
             return res[n];
@@ -47,7 +47,7 @@ class Solution {
         // 处理当前层逻辑
 
         // 下探到下一层
-        res[n] = bit(res, n & (n - 1)) + 1;
+        res[n] = this.bit(res, n & (n - 1)) + 1;
         return res[n];
         // 清理当前层
 

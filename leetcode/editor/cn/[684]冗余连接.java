@@ -41,6 +41,9 @@
 // 👍 270 👎 0
 
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -70,7 +73,7 @@ class Solution {
         }
 
         protected void union(int p, int q) {
-            roots[this.findRoot(p)] = this.findRoot(q);
+            this.roots[this.findRoot(p)] = this.findRoot(q);
         }
 
         protected void union(int... p) {
@@ -81,13 +84,13 @@ class Solution {
 
         protected int findRoot(int i) {
             int root = i;
-            while (root != roots[root]) {
-                root = roots[root];
+            while (root != this.roots[root]) {
+                root = this.roots[root];
             }
             int t;
-            while (i != roots[root]) {
-                t = roots[i];
-                roots[i] = root;
+            while (i != this.roots[root]) {
+                t = this.roots[i];
+                this.roots[i] = root;
                 i = t;
             }
             return root;
@@ -95,6 +98,12 @@ class Solution {
 
         protected boolean isConnected(int p, int q) {
             return this.findRoot(p) == this.findRoot(q);
+        }
+
+        public int getCount() {
+            Set<Integer> rootSet = new HashSet<>();
+            Arrays.stream(this.roots).forEach(rootSet::add);
+            return rootSet.size();
         }
     }
 }
