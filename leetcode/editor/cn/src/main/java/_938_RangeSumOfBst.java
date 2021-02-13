@@ -1,4 +1,4 @@
-//给定二叉搜索树的根结点 root，返回值位于范围 [low, high] 之间的所有结点的值的和。 
+//给定二叉搜索树的根结点 root，返回值位于范围 [low, high] 之间的所有结点的值的和。
 //
 // 
 //
@@ -30,10 +30,14 @@
 // 👍 156 👎 0
 
 
+import com.caomu.util.TreeNode;
+import com.caomu.util.Utils;
+
 public class _938_RangeSumOfBst {
     public static void main(String[] args) {
         Solution solution = new _938_RangeSumOfBst().new Solution();
-        System.out.println(solution.rangeSumBST(TreeNodeUtil.arrayToTreeNode("[182,107,257,68,146,221,296,50,89,128,164,203,239,278,314,41,59,80,98,119,137,155,173,194,212,230,248,269,287,305,323,35,47,56,65,74,86,95,104,113,125,134,143,152,161,170,179,188,200,209,218,227,236,245,254,263,275,284,293,302,311,320,329,32,38,44,null,53,null,62,null,71,77,83,null,92,null,101,null,110,116,122,null,131,null,140,null,149,null,158,null,167,null,176,null,185,191,197,null,206,null,215,null,224,null,233,null,242,null,251,null,260,266,272,null,281,null,290,null,299,null,308,null,317,null,326]"), 86, 224));
+        System.out.println(solution.rangeSumBST(Utils.arrayToTreeNode(
+                "[182,107,257,68,146,221,296,50,89,128,164,203,239,278,314,41,59,80,98,119,137,155,173,194,212,230,248,269,287,305,323,35,47,56,65,74,86,95,104,113,125,134,143,152,161,170,179,188,200,209,218,227,236,245,254,263,275,284,293,302,311,320,329,32,38,44,null,53,null,62,null,71,77,83,null,92,null,101,null,110,116,122,null,131,null,140,null,149,null,158,null,167,null,176,null,185,191,197,null,206,null,215,null,224,null,233,null,242,null,251,null,260,266,272,null,281,null,290,null,299,null,308,null,317,null,326]"), 182, 224));
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
@@ -51,24 +55,18 @@ public class _938_RangeSumOfBst {
 
             // clean current layer
             if (root.val > high) {
-                if (root.left != null && root.left.val <= high) {
-                    System.out.println("root.val:" + root.val + ",lVal:" + lVal);
-                    return lVal;
-                }
-                return 0;
+//                System.out.println("root.val:" + root.val + ",lVal:" + lVal);
+                return lVal;
             } else if (root.val >= low) {
                 //root.val <= high
-                System.out.println(
-                        "root.val:" + root.val + ",lVal:" + lVal + ",rVal:" + rVal + ",sum:" +
-                        (root.val + rVal + lVal));
+//                System.out.println(
+//                        "root.val:" + root.val + ",lVal:" + lVal + ",rVal:" + rVal + ",sum:" +
+//                        (root.val + rVal + lVal));
                 return root.val + rVal + lVal;
             } else {
                 //root.val < low
-                if (root.right != null && root.right.val >= low) {
-                    System.out.println("root.val:" + root.val + ",rVal:" + rVal);
-                    return rVal;
-                }
-                return 0;
+//                System.out.println("root.val:" + root.val + ",rVal:" + rVal);
+                return rVal;
             }
         }
     }

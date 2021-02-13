@@ -1,3 +1,8 @@
+package com.caomu.util;
+
+
+import com.alibaba.fastjson.JSONArray;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,15 +15,15 @@ import java.util.stream.Collectors;
  * @project : leetcode_java
  * @since : 2021/02/10, 水, 18:06
  */
-public class TreeNodeUtil {
+public class Utils {
     public static TreeNode arrayToTreeNode(String s) {
         List<Integer> array = Arrays.stream(s.substring(s.indexOf("[") + 1, s.lastIndexOf("]")).split(",")).map(i ->
                 i.equals("null") ? null : Integer.valueOf(i)
         ).collect(Collectors.toList());
-        return arrayToTreeNode(array);
+        return list2TreeNode(array);
     }
 
-    public static TreeNode arrayToTreeNode(List<Integer> array) {
+    public static TreeNode list2TreeNode(List<Integer> array) {
         if (array.isEmpty()) {
             return null;
         }
@@ -46,4 +51,21 @@ public class TreeNodeUtil {
         return root;
     }
 
+    public static int[] stringToArray(String s) {
+        return Arrays.stream(s.substring(
+                s.indexOf("[") + 1, s.lastIndexOf("]")).split(",")).mapToInt(Integer::valueOf).toArray();
+    }
+
+    public static String[] stringToStringArray(String s) {
+        return ((JSONArray) JSONArray.parse(s)).toArray(new String[]{});
+    }
+
+    public static int[][] stringTo2DArray(String s) {
+        JSONArray[] arr = ((JSONArray) JSONArray.parse(s)).toArray(new JSONArray[]{});
+        int[][] result = new int[arr.length][Arrays.stream(arr).mapToInt(JSONArray::size).max().getAsInt()];
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = Arrays.stream(arr[i].toArray()).mapToInt(o -> (int) o).toArray();
+        }
+        return result;
+    }
 }
