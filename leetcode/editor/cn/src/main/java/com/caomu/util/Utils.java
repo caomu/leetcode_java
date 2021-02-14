@@ -3,10 +3,7 @@ package com.caomu.util;
 
 import com.alibaba.fastjson.JSONArray;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -65,6 +62,15 @@ public class Utils {
         int[][] result = new int[arr.length][Arrays.stream(arr).mapToInt(JSONArray::size).max().getAsInt()];
         for (int i = 0; i < arr.length; i++) {
             result[i] = Arrays.stream(arr[i].toArray()).mapToInt(o -> (int) o).toArray();
+        }
+        return result;
+    }
+
+    public static List<List<String>> stringTo2DStringList(String s) {
+        JSONArray[] arr = ((JSONArray) JSONArray.parse(s)).toArray(new JSONArray[]{});
+        List<List<String>> result = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            result.add(Arrays.stream(arr[i].toArray()).map(String::valueOf).collect(Collectors.toList()));
         }
         return result;
     }
