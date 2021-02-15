@@ -62,6 +62,7 @@ public class Utils {
         int[][] result = new int[arr.length][Arrays.stream(arr).mapToInt(JSONArray::size).max().getAsInt()];
         for (int i = 0; i < arr.length; i++) {
             result[i] = Arrays.stream(arr[i].toArray()).mapToInt(o -> (int) o).toArray();
+            System.out.println(Arrays.toString(result[i]));
         }
         return result;
     }
@@ -69,8 +70,10 @@ public class Utils {
     public static List<List<String>> stringTo2DStringList(String s) {
         JSONArray[] arr = ((JSONArray) JSONArray.parse(s)).toArray(new JSONArray[]{});
         List<List<String>> result = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            result.add(Arrays.stream(arr[i].toArray()).map(String::valueOf).collect(Collectors.toList()));
+        for (JSONArray objects : arr) {
+            List<String> list = Arrays.stream(objects.toArray()).map(String::valueOf).collect(Collectors.toList());
+            result.add(list);
+            System.out.println(list);
         }
         return result;
     }
