@@ -1443,6 +1443,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_28_ImplementStrstr.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_28_ImplementStrstr.java" />
+              <option name="questionId" value="28" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_310_MinimumHeightTrees.java">
           <value>
             <LeetcodeEditor>
@@ -1587,6 +1595,22 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_46_Permutations.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_46_Permutations.java" />
+              <option name="questionId" value="46" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_47_PermutationsIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_47_PermutationsIi.java" />
+              <option name="questionId" value="47" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_4_MedianOfTwoSortedArrays.java">
           <value>
             <LeetcodeEditor>
@@ -1603,11 +1627,35 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_559_MaximumDepthOfNAryTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_559_MaximumDepthOfNAryTree.java" />
+              <option name="questionId" value="774" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_561_ArrayPartitionI.java">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_561_ArrayPartitionI.java" />
               <option name="questionId" value="561" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_566_ReshapeTheMatrix.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_566_ReshapeTheMatrix.java" />
+              <option name="questionId" value="566" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_590_NAryTreePostorderTraversal.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_590_NAryTreePostorderTraversal.java" />
+              <option name="questionId" value="776" />
             </LeetcodeEditor>
           </value>
         </entry>
