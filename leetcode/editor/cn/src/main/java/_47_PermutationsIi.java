@@ -1,40 +1,53 @@
-//给定一个 没有重复 数字的序列，返回其所有可能的全排列。 
+//给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。 
 //
-// 示例: 
+// 
 //
-// 输入: [1,2,3]
-//输出:
-//[
-//  [1,2,3],
-//  [1,3,2],
-//  [2,1,3],
-//  [2,3,1],
-//  [3,1,2],
-//  [3,2,1]
-//] 
+// 示例 1： 
+//
+// 
+//输入：nums = [1,1,2]
+//输出：
+//[[1,1,2],
+// [1,2,1],
+// [2,1,1]]
+// 
+//
+// 示例 2： 
+//
+// 
+//输入：nums = [1,2,3]
+//输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+// 
+//
+// 
+//
+// 提示： 
+//
+// 
+// 1 <= nums.length <= 8 
+// -10 <= nums[i] <= 10 
+// 
 // Related Topics 回溯算法 
-// 👍 1131 👎 0
+// 👍 591 👎 0
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class _46_Permutations {
+public class _47_PermutationsIi {
     public static void main(String[] args) {
-        Solution solution = new _46_Permutations().new Solution();
-        System.out.println(solution.permute(new int[]{1, 2, 3}));
+        Solution solution = new _47_PermutationsIi().new Solution();
+        System.out.println(solution);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public List<List<Integer>> permute(int[] nums) {
-            List<List<Integer>> permutes = new ArrayList<>();
+        public List<List<Integer>> permuteUnique(int[] nums) {
+            Set<List<Integer>> permutes = new HashSet<>();
             this.permute(nums, new int[nums.length], permutes, new ArrayList<>());
-            return permutes;
+            return new ArrayList<>(permutes);
         }
 
-        private void permute(int[] nums, int[] used, List<List<Integer>> permutes, List<Integer> permute) {
+        private void permute(int[] nums, int[] used, Set<List<Integer>> permutes, List<Integer> permute) {
             boolean isAllUsed = true;
             for (int i = 0; i < used.length; i++) {
                 if (used[i] > 0) {
