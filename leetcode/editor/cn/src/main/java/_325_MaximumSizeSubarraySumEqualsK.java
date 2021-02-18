@@ -34,7 +34,9 @@ public class _325_MaximumSizeSubarraySumEqualsK {
             int[] sum = new int[nums.length];
             sum[0] = nums[0];
             for (int i = 1; i < nums.length; i++) {
-                sum[i] = sum[i - 1] + nums[i];
+                if (k == sum[i - 1] + nums[i]) {
+                    sum[i] = k;
+                }
             }
 
             for (int i = sum.length - 1; i >= 0; i--) {

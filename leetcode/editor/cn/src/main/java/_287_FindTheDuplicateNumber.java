@@ -59,22 +59,29 @@
 
 import com.caomu.util.Utils;
 
+import java.util.Arrays;
+
 public class _287_FindTheDuplicateNumber {
     public static void main(String[] args) {
         Solution solution = new _287_FindTheDuplicateNumber().new Solution();
-        System.out.println(solution.findDuplicate(Utils.stringToArray("[2,5,9,6,9,3,8,9,7,1]")));
+        System.out.println(solution.findDuplicate(Utils.stringToArray("[2,5,9,6,1,3,8,4,7,1]")));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findDuplicate(int[] nums) {
-            int fa = 0;
-            int sl = 0;
-            do {
-                fa = nums[nums[fa]];
-                sl = nums[sl];
-            } while (fa != sl);
-            return nums[sl];
+            int left = 1;
+            int right = nums.length - 1;
+            while (left <= right) {
+                int mid = (left + right) >> 1;
+                int cnt = (int) Arrays.stream(nums).filter(n -> n <= mid).count();
+                if (cnt > mid) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            return left;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
