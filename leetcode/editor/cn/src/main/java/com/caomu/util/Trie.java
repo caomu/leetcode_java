@@ -22,9 +22,13 @@ public class Trie {
      * Inserts a word into the trie.
      */
     public void insert(String word) {
+        this.insert(word.toCharArray());
+    }
+
+    public void insert(char[] chars) {
         Trie curr = this;
-        for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
             if (curr.children[c - 'a'] == null) {
                 curr.children[c - 'a'] = new Trie();
             }

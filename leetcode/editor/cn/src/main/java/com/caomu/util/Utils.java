@@ -59,7 +59,7 @@ public class Utils {
 
     public static int[][] stringTo2DArray(String s) {
         JSONArray[] arr = ((JSONArray) JSONArray.parse(s)).toArray(new JSONArray[]{});
-        int[][] result = new int[arr.length][Arrays.stream(arr).mapToInt(JSONArray::size).max().getAsInt()];
+        int[][] result = new int[arr.length][Arrays.stream(arr).mapToInt(JSONArray::size).max().orElse(0)];
         for (int i = 0; i < arr.length; i++) {
             result[i] = Arrays.stream(arr[i].toArray()).mapToInt(o -> (int) o).toArray();
             System.out.println(Arrays.toString(result[i]));
