@@ -22,27 +22,42 @@
 // 👍 97 👎 0
 
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
 public class _325_MaximumSizeSubarraySumEqualsK {
+
+    private static final Logger logger = Logger.getLogger(_325_MaximumSizeSubarraySumEqualsK.class.toString());
+
     public static void main(String[] args) {
+        long startTimeMillis = System.currentTimeMillis();
         Solution solution = new _325_MaximumSizeSubarraySumEqualsK().new Solution();
-        System.out.println(solution);
+        logger.warning(String.valueOf(solution.maxSubArrayLen(new int[]{1, -1, 5, -2, 3}, 3)));
+        logger.info("time cost: [" + (System.currentTimeMillis() - startTimeMillis) + "] ms");
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxSubArrayLen(int[] nums, int k) {
+            if (nums.length == 0) {
+                return 0;
+            }
             int[] sum = new int[nums.length];
             sum[0] = nums[0];
+            Map<Integer, Integer> sumIndexMap = new HashMap<>();
+            sumIndexMap.put(sum[0], 0);
+            int maxLength = sum[0] == k ? 1 : 0;
             for (int i = 1; i < nums.length; i++) {
-                if (k == sum[i - 1] + nums[i]) {
-                    sum[i] = k;
+                sum[i] = sum[i - 1] + nums[i];
+                sumIndexMap.putIfAbsent(sum[i], i);
+                if (sum[i] == k) {
+                    maxLength = Math.max(maxLength, i + 1);
+                } else if (sumIndexMap.containsKey(sum[i] - k)) {
+                    maxLength = Math.max(maxLength, i - sumIndexMap.get(sum[i] - k));
                 }
             }
-
-            for (int i = sum.length - 1; i >= 0; i--) {
-                int t = sum[i] - k;
-            }
-            return 0;
+            return maxLength;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

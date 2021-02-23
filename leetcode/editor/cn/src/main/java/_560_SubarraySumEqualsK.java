@@ -14,33 +14,46 @@
 // 数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。 
 // 
 // Related Topics 数组 哈希表 
-// 👍 770 👎 0
+// 👍 774 👎 0
 
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public class _560_SubarraySumEqualsK {
+
+    private static final Logger logger = Logger.getLogger(_560_SubarraySumEqualsK.class.toString());
+
     public static void main(String[] args) {
+        long startTimeMillis = System.currentTimeMillis();
         Solution solution = new _560_SubarraySumEqualsK().new Solution();
-        System.out.println(solution.subarraySum(new int[]{1, 2, 1, 2, 1}, 3));
+        assert 1 == solution.subarraySum(new int[]{-1, -1, 1}, 0);
+        assert 3 == solution.subarraySum(new int[]{1, -1, 0}, 0);
+        assert 2 == solution.subarraySum(new int[]{1, 1, 1}, 2);
+        logger.warning(String.valueOf(solution.subarraySum(new int[]{1, 1, 1}, 2)));
+        logger.info("time cost: [" + (System.currentTimeMillis() - startTimeMillis) + "] ms");
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int subarraySum(int[] nums, int k) {
-            int result = 0;
             int[] sum = new int[nums.length];
-            for (int i = 0; i < nums.length; i++) {
-                for (int j = i; j < nums.length; j++) {
-                    if (i > 0) {
-                        sum[j] -= nums[i - 1];
-                    } else {
-                        sum[j] = (j > 0 ? sum[j - 1] : 0) + nums[j];
-                    }
-                    if (sum[j] == k) {
-                        result++;
-                    }
+            sum[0] = nums[0];
+            int cnt = sum[0] == k ? 1 : 0;
+            Map<Integer, Integer> sumIndexMap = new HashMap<>();
+            sumIndexMap.put(nums[0], 1);
+            for (int i = 1; i < nums.length; i++) {
+                sum[i] = sum[i - 1] + nums[i];
+                if (sum[i] == k) {
+                    cnt++;
                 }
+                if (sumIndexMap.containsKey(sum[i] - k)) {
+                    cnt += sumIndexMap.get(sum[i] - k);
+                }
+                sumIndexMap.put(sum[i], sumIndexMap.getOrDefault(sum[i], 0) + 1);
             }
-            return result;
+            return cnt;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

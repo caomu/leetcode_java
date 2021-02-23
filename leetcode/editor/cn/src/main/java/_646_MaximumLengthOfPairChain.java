@@ -27,70 +27,62 @@
 
 import com.caomu.util.Utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class _646_MaximumLengthOfPairChain {
+
+    private static final Logger logger = Logger.getLogger(_646_MaximumLengthOfPairChain.class.toString());
+
     public static void main(String[] args) {
+        long startTimeMillis = System.currentTimeMillis();
         Solution solution = new _646_MaximumLengthOfPairChain().new Solution();
-//        assert solution.findLongestChain(Utils.stringTo2DArray("[[-10,-8],[8,9],[-5,0],[6,10],[-6,-4],[1,7],[9,10],[-4,7]]")) ==
-//               4;
+        assert solution.findLongestChain(Utils.stringTo2DArray("[[-10,-8],[8,9],[-5,0],[6,10],[-6,-4],[1,7],[9,10],[-4,7]]")) ==
+               4;
         assert solution.findLongestChain(Utils.stringTo2DArray("[[9,10],[-4,9],[-5,6],[-5,9],[8,9]]")) == 2;
+        assert solution.findLongestChain(Utils.stringTo2DArray("[[1,2], [2,3], [3,4]]")) == 2;
+        assert solution.findLongestChain(Utils.stringTo2DArray("[[3,4],[2,3],[1,2]]")) == 2;
+//        logger.warning(String.valueOf(solution.findLongestChain(Utils.stringTo2DArray("[[9,10],[-4,9],[-5,6],[-5,9],[8,9]]"))));
+        logger.info("time cost: [" + (System.currentTimeMillis() - startTimeMillis) + "] ms");
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findLongestChain(int[][] pairs) {
-            TreeMap<Integer, List<Integer>> pairMap = new TreeMap<>();
-            Arrays.stream(pairs).forEach(pair -> {
-                List<Integer> endList = pairMap.getOrDefault(pair[0], new ArrayList<>());
-                endList.add(pair[1]);
-                pairMap.put(pair[0], endList);
+            Map<Integer, Set<Integer>> pairMap = new TreeMap<>();
+            Arrays.stream(pairs).forEach(p -> {
+                Set<Integer> endSet = pairMap.getOrDefault(p[1], new HashSet<>());
+                endSet.add(p[0]);
+                pairMap.put(p[1], endSet);
             });
-            int[] dp = new int[pairs.length + 1];
-            Arrays.fill(dp, -1);
-            List<Integer> startList = new ArrayList<>(pairMap.keySet());
-            return this.findLongestChain(pairMap, startList, startList.get(0) - 1, 1, dp);
+            int[][] newPairs = new int[pairs.length][2];
+            int i = 0;
+            for (int end : pairMap.keySet()) {
+                for (int start : pairMap.get(end)) {
+                    newPairs[i][0] = start;
+                    newPairs[i][1] = end;
+                    i++;
+                }
+            }
+            return this.findLongestChain(newPairs, pairs.length)[0];
         }
 
-        private int findLongestChain(TreeMap<Integer, List<Integer>> pairMap, List<Integer> startList, int startNum, int startIdx, int[] dp) {
-            if (startIdx > startList.size()) {
-                return 0;
+        /**
+         * @param pairs
+         * @param length
+         * @return index 0 : count; index 1 : maxEnd
+         */
+        private int[] findLongestChain(int[][] pairs, int length) {
+            if (length == 1) {
+                return new int[]{1, pairs[0][1]};
             }
-            if (dp[startIdx] > -1) {
-                return dp[startIdx];
-            }
-            if (startIdx == pairMap.size()) {
-                if (startList.get(startList.size() - 1) > startNum) {
-                    dp[startIdx] = 1;
-                } else {
-                    dp[startIdx] = 0;
-                }
+            int[] lastDP = this.findLongestChain(pairs, length - 1);
+            if (lastDP[1] < pairs[length - 1][0]) {
+                return new int[]{lastDP[0] + 1, pairs[length - 1][1]};
             } else {
-                Integer higherKey = pairMap.higherKey(startNum);
-                if (higherKey == null) {
-                    dp[startIdx] = 0;
-                } else {
-                    for (int i = startList.indexOf(higherKey); i < startList.size(); i++) {
-                        for (int higherKeyEnd : pairMap.get(higherKey)) {
-                            for (int end : pairMap.get(startList.get(i))) {
-
-                            }
-                        }
-//                        if (pairMap.get(higherKey) > pairMap.get(startList.get(i))) {
-//                            break;
-//                        }
-//                        dp[startIdx] = Math.max(dp[startIdx],
-//                                this.findLongestChain(pairMap, startList, pairMap.get(startList.get(i)), i + 2, dp) +
-//                                1);
-                    }
-                }
+                return lastDP;
             }
-            return dp[startIdx];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
-
 }
