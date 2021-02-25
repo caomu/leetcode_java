@@ -1859,6 +1859,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_642_DesignSearchAutocompleteSystem.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_642_DesignSearchAutocompleteSystem.java" />
+              <option name="questionId" value="642" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_646_MaximumLengthOfPairChain.java">
           <value>
             <LeetcodeEditor>
@@ -1872,6 +1880,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_650_TwoKeysKeyboard.java" />
               <option name="questionId" value="650" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_68_TextJustification.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_68_TextJustification.java" />
+              <option name="questionId" value="68" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -1976,6 +1992,30 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_78_Subsets.java" />
               <option name="questionId" value="78" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_802_FindEventualSafeStates.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_802_FindEventualSafeStates.java" />
+              <option name="questionId" value="820" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_832_FlippingAnImage.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_832_FlippingAnImage.java" />
+              <option name="questionId" value="861" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_867_TransposeMatrix.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_867_TransposeMatrix.java" />
+              <option name="questionId" value="898" />
             </LeetcodeEditor>
           </value>
         </entry>
