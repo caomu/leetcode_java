@@ -1315,6 +1315,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1178_NumberOfValidWordsForEachPuzzle.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1178_NumberOfValidWordsForEachPuzzle.java" />
+              <option name="questionId" value="1282" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_11_ContainerWithMostWater.java">
           <value>
             <LeetcodeEditor>
@@ -1427,6 +1435,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1749_MaximumAbsoluteSumOfAnySubarray.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1749_MaximumAbsoluteSumOfAnySubarray.java" />
+              <option name="questionId" value="1849" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_198_HouseRobber.java">
           <value>
             <LeetcodeEditor>
@@ -1464,6 +1480,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_211_DesignAddAndSearchWordsDataStructure.java" />
               <option name="questionId" value="211" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_212_WordSearchIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_212_WordSearchIi.java" />
+              <option name="questionId" value="212" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -1587,6 +1611,22 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_295_FindMedianFromDataStream.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_295_FindMedianFromDataStream.java" />
+              <option name="questionId" value="295" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_309_BestTimeToBuyAndSellStockWithCooldown.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_309_BestTimeToBuyAndSellStockWithCooldown.java" />
+              <option name="questionId" value="309" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_310_MinimumHeightTrees.java">
           <value>
             <LeetcodeEditor>
@@ -1704,6 +1744,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_384_ShuffleAnArray.java" />
               <option name="questionId" value="384" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_395_LongestSubstringWithAtLeastKRepeatingCharacters.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_395_LongestSubstringWithAtLeastKRepeatingCharacters.java" />
+              <option name="questionId" value="395" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -1992,6 +2040,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_78_Subsets.java" />
               <option name="questionId" value="78" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_79_WordSearch.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_79_WordSearch.java" />
+              <option name="questionId" value="79" />
             </LeetcodeEditor>
           </value>
         </entry>
