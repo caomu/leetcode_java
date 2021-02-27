@@ -33,7 +33,7 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$/leetcode/editor/cn/target/classes" />
   </component>
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
