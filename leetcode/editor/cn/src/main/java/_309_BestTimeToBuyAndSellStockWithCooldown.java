@@ -26,8 +26,8 @@ public class _309_BestTimeToBuyAndSellStockWithCooldown {
         long startTimeMillis = System.currentTimeMillis();
         Solution solution = new _309_BestTimeToBuyAndSellStockWithCooldown().new Solution();
 
-        // assert solution == ;
-        logger.warning(String.valueOf(solution.maxProfit(new int[]{6, 1, 3, 2, 4, 7})));
+//        assert solution.maxProfit(new int[]{1, 2, 3, 0, 2}) == 3;
+        logger.warning(String.valueOf(solution.maxProfit(new int[]{8, 6, 4, 3, 3, 2, 3, 5, 8, 3, 8, 2, 6})));
 
         logger.info("time cost: [" + (System.currentTimeMillis() - startTimeMillis) + "] ms");
     }
@@ -35,44 +35,42 @@ public class _309_BestTimeToBuyAndSellStockWithCooldown {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxProfit(int[] prices) {
-            return this.maxProfit(prices, prices.length - 1, new Integer[prices.length][2])[1];
+            if (prices.length == 0) {
+                return 0;
+            }
+            Integer[][] profit = new Integer[prices.length][3];
+            this.maxProfit(prices, prices.length - 1, profit);
+            return Math.max(profit[prices.length - 1][1], profit[prices.length - 1][2]);
         }
 
         /**
-         * @return 0:cost, 1: profit
+         * @return 0: 持有一支股票，对应的「累计最大收益」
+         * 1: 不持有任何股票，并且处于冷冻期中，对应的「累计最大收益」
+         * 2: 不持有任何股票，并且不处于冷冻期中，对应的「累计最大收益」
+         * dp[i][0]=max(dp[i−1][0],dp[i−1][2]−prices[i])
+         * dp[i][1]=dp[i−1][0]+prices[i]
+         * dp[i][2]=max(dp[i−1][1],dp[i−1][2])
          */
         private Integer[] maxProfit(int[] prices, int i, Integer[][] profit) {
-            if (profit[i] != null) {
-                return profit[i];
-            }
-            if (i <= 0) {
-                profit[0] = new Integer[]{0, 0};
-            } else if (i == 1) {
-                if (prices[1] > prices[0]) {
-                    profit[1] = new Integer[]{prices[1] - prices[0], prices[0]};
-                } else {
-                    profit[1] = new Integer[]{0, 0};
-                }
-            } else if (i == 2) {
-
-//
-//                profit[2] = Math.max(Math.max(
-//                        prices[1] > prices[0] ? prices[1] - prices[0] : 0,
-//                        prices[2] > prices[1] ? prices[2] - prices[1] : 0),
-//                        prices[2] > prices[0] ? prices[2] - prices[0] : 0);
+            if (i == 0) {
+                profit[0] = new Integer[]{-prices[0], 0, 0};
             } else {
-                profit[i - 1] = this.maxProfit(prices, i - 1, profit);
-                profit[i - 2] = this.maxProfit(prices, i - 2, profit);
-                profit[i - 3] = this.maxProfit(prices, i - 3, profit);
-
-                profit[i] = profit[i - 1][1] > profit[i - 2][1] ? profit[i - 1] : profit[i - 2];
-
-                Integer tempProfit1[] = new Integer[]{(profit[i - 3][1] +
-                                                       (prices[i] > prices[i - 1] ? prices[i] - prices[i - 1] : 0))};
-                Integer tempProfit2[] =
-                        prices[i] > profit[i - 3][0] ? new Integer[]{profit[i - 3][0],
-                                prices[i] - profit[i - 3][0]} : new Integer[]{0};
-
+                /*
+                 * dp[i][0]=max(dp[i−1][0],dp[i−1][2]−prices[i])
+                 * dp[i][1]=dp[i−1][0]+prices[i]
+                 * dp[i][2]=max(dp[i−1][1],dp[i−1][2])
+                 */
+                if (profit[i][0] == null) {
+                    profit[i][0] = Math.max(this.maxProfit(prices, i - 1, profit)[0],
+                            this.maxProfit(prices, i - 1, profit)[2] - prices[i]);
+                }
+                if (profit[i][1] == null) {
+                    profit[i][1] = this.maxProfit(prices, i - 1, profit)[0] + prices[i];
+                }
+                if (profit[i][2] == null) {
+                    profit[i][2] = Math.max(this.maxProfit(prices, i - 1, profit)[1],
+                            this.maxProfit(prices, i - 1, profit)[2]);
+                }
             }
             return profit[i];
         }
