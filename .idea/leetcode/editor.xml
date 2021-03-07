@@ -1419,6 +1419,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_133_CloneGraph.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_133_CloneGraph.java" />
+              <option name="questionId" value="133" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1379_FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree.java">
           <value>
             <LeetcodeEditor>
@@ -1731,6 +1739,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_311_SparseMatrixMultiplication.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_311_SparseMatrixMultiplication.java" />
+              <option name="questionId" value="311" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_315_CountOfSmallerNumbersAfterSelf.java">
           <value>
             <LeetcodeEditor>
@@ -1744,6 +1760,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_322_CoinChange.java" />
               <option name="questionId" value="322" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_323_NumberOfConnectedComponentsInAnUndirectedGraph.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_323_NumberOfConnectedComponentsInAnUndirectedGraph.java" />
+              <option name="questionId" value="323" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -2067,6 +2091,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_599_MinimumIndexSumOfTwoLists.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_599_MinimumIndexSumOfTwoLists.java" />
+              <option name="questionId" value="599" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_5_LongestPalindromicSubstring.java">
           <value>
             <LeetcodeEditor>
@@ -2171,6 +2203,22 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_704_BinarySearch.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_704_BinarySearch.java" />
+              <option name="questionId" value="792" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_705_DesignHashset.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_705_DesignHashset.java" />
+              <option name="questionId" value="816" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_706_DesignHashmap.java">
           <value>
             <LeetcodeEditor>
@@ -2248,6 +2296,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_784_LetterCasePermutation.java" />
               <option name="questionId" value="800" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_785_IsGraphBipartite.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_785_IsGraphBipartite.java" />
+              <option name="questionId" value="801" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -2352,6 +2408,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_9_PalindromeNumber.java" />
               <option name="questionId" value="9" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_剑指 Offer 40_ZuiXiaoDeKgeShuLcof.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_剑指 Offer 40_ZuiXiaoDeKgeShuLcof.java" />
+              <option name="questionId" value="100301" />
             </LeetcodeEditor>
           </value>
         </entry>
