@@ -15,18 +15,18 @@ public class TreeNodeUtils {
             return "[]";
         }
 
-        String output = "";
+        StringBuilder output = new StringBuilder();
         Queue<TreeNode> nodeQueue = new LinkedList<>();
         nodeQueue.add(root);
         while (!nodeQueue.isEmpty()) {
             TreeNode node = nodeQueue.remove();
 
             if (node == null) {
-                output += "null, ";
+                output.append("null, ");
                 continue;
             }
 
-            output += String.valueOf(node.val) + ", ";
+            output.append(node.val).append(", ");
             nodeQueue.add(node.left);
             nodeQueue.add(node.right);
         }

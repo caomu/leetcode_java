@@ -11,9 +11,6 @@ public class TreeNode {
     public TreeNode right;
     public int val;
 
-    TreeNode() {
-    }
-
     public TreeNode(int val) {
         this.val = val;
     }
@@ -22,5 +19,14 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    public TreeNode() {
+    }
+
+    @Override
+    public String toString() {
+//        TreeNodeUtils.prettyPrintTree(this);
+        return TreeNodeUtils.treeNodeToString(this);
     }
 }
