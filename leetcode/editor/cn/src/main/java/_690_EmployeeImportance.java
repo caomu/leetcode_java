@@ -25,8 +25,6 @@
 // 👍 128 👎 0
 
 
-import com.caomu.util.Employee;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +47,12 @@ public class _690_EmployeeImportance {
         logger.warning(String.valueOf(solution));
 
         logger.info("time cost: [" + (System.currentTimeMillis() - startTimeMillis) + "] ms");
+    }
+
+    public class Employee {
+        public int id;
+        public int importance;
+        public List<Integer> subordinates;
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
