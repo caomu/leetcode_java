@@ -1627,6 +1627,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_153_FindMinimumInRotatedSortedArray.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_153_FindMinimumInRotatedSortedArray.java" />
+              <option name="questionId" value="153" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_1592_RearrangeSpacesBetweenWords.java">
           <value>
             <LeetcodeEditor>
@@ -1947,6 +1955,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_264_UglyNumberIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_264_UglyNumberIi.java" />
+              <option name="questionId" value="264" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_266_PalindromePermutation.java">
           <value>
             <LeetcodeEditor>
@@ -2144,6 +2160,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_338_CountingBits.java" />
               <option name="questionId" value="338" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_33_SearchInRotatedSortedArray.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_33_SearchInRotatedSortedArray.java" />
+              <option name="questionId" value="33" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -2880,6 +2904,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_80_RemoveDuplicatesFromSortedArrayIi.java" />
               <option name="questionId" value="80" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_81_SearchInRotatedSortedArrayIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/leetcode/editor/cn/src/main/java/_81_SearchInRotatedSortedArrayIi.java" />
+              <option name="questionId" value="81" />
             </LeetcodeEditor>
           </value>
         </entry>
